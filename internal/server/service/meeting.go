@@ -21,8 +21,8 @@ func MeetingList(c *gin.Context) {
 	var list []*MeetingListReply
 	var cnt int64
 	tx := models.DB.Model(&models.RoomBasic{})
-	if in.Keyword != "" {
-		tx.Where("name LIKE ?", "%"+in.Keyword+"%")
+	if in.Name != "" {
+		tx.Where("name LIKE ?", "%"+in.Name+"%")
 	}
 	err = tx.Count(&cnt).Limit(in.Size).Offset((in.Page - 1) * in.Size).Find(&list).Error
 	if err != nil {

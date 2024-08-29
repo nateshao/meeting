@@ -3,9 +3,9 @@ package service
 import "time"
 
 type MeetingListRequest struct {
-	Page    int    `json:"page" form:"page"`
-	Size    int    `json:"size" form:"size"`
-	Keyword string `json:"keyword" form:"keyword"`
+	Page int    `json:"page" form:"page"`
+	Size int    `json:"size" form:"size"`
+	Name string `json:"name" form:"name"`
 }
 
 type MeetingListReply struct {
