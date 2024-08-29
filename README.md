@@ -133,9 +133,9 @@ INSERT INTO `meeting`.`user_basic`(`id`, `created_at`, `updated_at`, `deleted_at
 
 **postman接口验证**
 
-接口url：http://localhost:8080/user/login
-
-入参：
+1. 接口url：http://localhost:8080/user/login
+2. 请求方法：POST
+3. 入参：
 
 ```go
 {
@@ -144,7 +144,7 @@ INSERT INTO `meeting`.`user_basic`(`id`, `created_at`, `updated_at`, `deleted_at
 }
 ```
 
-接口响应：
+4. 接口响应：
 
 ```go
 {
@@ -157,10 +157,121 @@ INSERT INTO `meeting`.`user_basic`(`id`, `created_at`, `updated_at`, `deleted_at
 
 ### 3.3 /auth/meeting/list 会议列表
 
+![](https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/wximage-20240829171446454.png)
 
+1. 在postman接口Headers添加Authorization：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InJvb3QifQ.kiFY5je3Hy_l7r41ku-eQ5PHZnsvBJ5StGP2d7bfpB0
 
+2. 输入接口url：http://localhost:8080/auth/meeting/list?name=pom&page=1&size=20
 
+3. 请求方法：GET
 
+4. 接口响应
 
+   ```json
+   {
+       "code": 200,
+       "data": {
+           "count": 3,
+           "list": [
+               {
+                   "identity": "4e51c192-7b13-415f-8d88-341115c959ca",
+                   "name": "pom",
+                   "begin_at": "1970-01-21T07:06:06+08:00",
+                   "end_at": "1970-01-21T07:06:06+08:00"
+               },
+               {
+                   "identity": "752a4f40-451d-4b51-86ec-dc9301826085",
+                   "name": "pom",
+                   "begin_at": "1970-01-21T07:06:06+08:00",
+                   "end_at": "1970-01-21T07:06:06+08:00"
+               },
+               {
+                   "identity": "98a35566-7f37-4232-8cd4-d65605c3d502",
+                   "name": "pom",
+                   "begin_at": "1970-01-21T07:06:06+08:00",
+                   "end_at": "1970-01-21T07:06:06+08:00"
+               }
+           ]
+       }
+   }
+   ```
 
+### 3.4 /auth/meeting/create 创建会议 
+
+![](https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/wximage-20240829174946412.png)
+
+1. 接口url：http://localhost:8080/auth/meeting/create
+
+2. 请求方法：POST
+
+3. 接口入参：
+
+   ```json
+   {
+       "name": "qianyu",
+       "begin_at": 1724766216,
+       "end_at": 1724766216
+   }
+   ```
+
+4. 接口响应：
+
+   ```json
+   {
+       "code": 200,
+       "msg": "ok"
+   }
+   ```
+
+### 3.5 编辑会议
+
+![](https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/wximage-20240829181327394.png)
+
+1. 接口url：http://localhost:8080/auth/meeting/edit
+
+2. 请求方法：PUT
+
+3. 接口入参：
+
+   ```json
+   {
+       "identity": "76bcb1b6-b142-40d3-b71a-4a0310c41246",
+       "name": "千羽1024"
+   }
+   ```
+
+4. 接口响应：
+
+   ```json
+   {
+       "code": 200,
+       "msg": "ok"
+   }
+   ```
+
+### 3.6 删除会议
+
+![](https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/wximage-20240829181444236.png)
+
+1. 接口url：http://localhost:8080/auth/meeting/delete
+
+2. 请求方法：DELETE
+
+3. 接口入参：
+
+   ```json
+   {
+       "identity": "76bcb1b6-b142-40d3-b71a-4a0310c41246",
+       "name": "千羽1024"
+   }
+   ```
+
+4. 接口响应：
+
+   ```json
+   {
+       "code": 200,
+       "msg": "ok"
+   }
+   ```
 
